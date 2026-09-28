@@ -1,0 +1,146 @@
+@media (max-width: 768px) {body {
+        padding: 20px 10px;
+    }
+
+    /* Il contenitore si adatta al 100% dello schermo mobile */
+    .catalogo-container {
+        gap: 20px; /* Riduce lo spazio tra gli slot */
+    }
+
+    /* Facciamo in modo che gli slot si ridimensionino bene su mobile */
+    .slot-borsa {
+        width: 45%; /* Su smartphone puoi metterne due per riga, oppure 100% se li vuoi a colonna singola */
+        max-width: none;
+    }}
+
+.Logo {display: block;         
+ margin: auto;
+height: 40px;}
+
+/* Stile generale della pagina */
+body {
+    background-color: #ffffff;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* 1. Centrare il logo in alto */
+.header-logo {
+    text-align: center; /* Centra il testo o il logo orizzontalmente */
+    margin-bottom: 50px;
+}
+
+/* 2. Creare la griglia per disporre i 5 slot */
+.catalogo-container {padding-top: 100px;
+    display: flex;         /* Permette agli elementi di andare a capo se necessario */
+    justify-content: center; /* Centra gli elementi nella pagina */
+    gap: 90px 90px;          /* Spazio tra le righe e tra le colonne */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* 3. Lo slot singolo */
+.slot-borsa {
+    text-align: center;      /* Centra la scritta sotto l'immagine */
+    width: 200px;            /* Larghezza fissa dello slot */
+    cursor: pointer;         /* Rende il cursore a manina quando passi sopra le borse */
+}
+
+/* 4. La cornice fissa dell'immagine (con il comando per scalarla) */
+.cornice-immagine {
+    width: 200px;            /* Larghezza della cornice */
+    height: 220px;           /* Altezza fissa della cornice */
+    background-color: #fff; /* Sfondo chiaro nel caso l'immagine non occupi tutto */
+    overflow: hidden;        /* Fondamentale: nasconde la parte di immagine che esce */
+    margin-bottom: 10px;     /* Spazio tra la cornice e la scritta sotto */
+}
+
+/* 5. Il comando per adattare/scalare l'immagine dentro la cornice */
+.cornice-immagine img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.3s ease;       /* IL COMANDO MAGICO: scala e riempie la cornice senza deformare la borsa */
+}
+
+.cornice-immagine:hover img{transform: scale(1.1)}
+
+/* 6. La scritta sotto */
+.nome-borsa {
+    font-size: 14px;
+    color: #0800e9;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+
+/* --- STILI AGGIUNTI PER L'EFFETTO ZOOM / ISOLAMENTO AL CLICK --- */
+
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Oscura tutto il catalogo intorno */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-contenuto {
+    background: #ffffff;
+    padding: 30px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.lightbox-contenuto img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.chiudi-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #000;
+}
+
+.chiudi-btn:hover {
+    color: #666;
+}
+
+.lightbox-contenuto h3 {
+    margin: 10px 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn-richiesta {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-richiesta:hover {
+    background-color: #333;
+}
